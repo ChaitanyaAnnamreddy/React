@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  </head>
+  <body>
+   
+    <button onclick='abc(event)'>This is html button</button>
+    <div id="dd1"></div>
+    <script type="text/babel">
+        //   sometimes konni values ni kuda event handler function ki pass cheyalsi vastadi
+        var students = ['chaitu','baby', 'amma', 'dady']
+        var students1 = []
+        
+        var btn = <button onClick={abc}>This is JSX button</button> //JSX lo onClick ani rayali,javascript lo onclick ani rastamu
+                        // and abc() ani ivakudadhu and function call should be put in {curly braces}
+                    //onClick - is event listener
+                    //abc - is event handler and event object automatic ga pass avtadi 
+                    //javascript lo laga abc(e) ani rayakarledu - 
+                    // jsx lo function defination ni bind chestam 
+                    // HTML and Javascript lo function call ni bind chestam
+        
+                 
+
+        function abc(e,index){
+            students.splice(index,1);
+            genUI();
+            
+
+            
+        }
+
+        function genUI(){
+
+        var mylist = <ul>
+            {
+                students.map(function(student,i){
+                    return <li onClick={function(e){abc(e,i)}}>{student}</li>
+                    //event listner ki JSX lo yepudu iyina special values pass cheyali ante anonomus function ni bind chesi lopala call cheyali
+                    //anonomus funtion ni bind chesam and dani lopala abc call pettam -
+                    //so ipudu em avtadi ante anononum function ki event object pass avtadi.
+                    // a event object ni manam abc() ki pass chesam and index ni kuda pass cheyochu
+                    //then bayata abc funciton ni call chesinapudu 1st object ga event object ga and
+                    // 2nd object ga index vastadi 
+
+                })
+            }
+            </ul>
+   
+        ReactDOM.render(mylist,document.getElementById('dd1'))
+        }
+        genUI(); //first time call cheyali then function abc() lo call chesam
+        
+
+
+    </script>
+
+  </body>
+</html>

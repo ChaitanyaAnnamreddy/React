@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="dd1"></div>
+    <script type="text/babel">
+     var countries = ['India','UK','USA','Canada']
+     var cricketers = ['Dhoni','Virat','Rohit','Sachin']
+     var myfav = ['ntr','ram','arjun','pawan']
+
+        var List = function(arg){ 
+            console.log(arg) // {cts: Array(4), abc: 'Edupoly'}
+            return <ul>{
+                arg.cts.map((e)=>{        //cts lo vunna countries ane array arg ki argument ga pass ayayi
+                return <li>{e}</li>
+            })
+          }
+        </ul>}
+
+              var x = <>
+                       <List cts = {countries} />
+                       <List cts = {cricketers} /> 
+                       <List cts = {myfav} />
+                       //custom attribute ni create 
+                       chesinapudu function ki arg ane oka argument pass avtadi
+                       // manam custom attributes yenni iyina ivochu Component ki
+
+                       //oakte list item ki sambandinchina template ni malli malli reuse cheskunam
+                       
+                      </>
+      
+        ReactDOM.render(x,document.getElementById('dd1')) 
+        //jsx element ni direct icheyochu
+      // ReactDOM.render(<List/>,document.getElementById('dd1'))
+        //  but 
+        //component ni matram opening and closing element lo ivali
+
+        
+    </script>
+  </body>
+</html>

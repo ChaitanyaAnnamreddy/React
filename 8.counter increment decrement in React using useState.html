@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <h1 id="id1" class="container"></h1>
+        <!-- <button onclick="abc()">Increment</button>
+        <button onclick="xyz()">Decrement</button> -->
+        <script type="text/babel">
+            function Counter(arg){
+
+                var [count,setCount] = React.useState(0); 
+                //React.useState method will have a array with initial value and a setter function
+                console.log(count) // [0, ƒ]
+                function inc(){ 
+                   setCount(count+1) //setCount function ni use chesi count ni update cheste automatic ga UI rerender avtundhi
+                }
+                function dec(){
+                    setCount(count-1)
+                }
+                function reset(){
+                    setCount(count=0)
+                }
+                return (
+                    <>
+                    <h1 id='id2'>Count:{count}</h1>
+                    <button onClick={inc}>Increment</button>
+                    <button onClick={dec}>Decrement</button>
+                    <button onClick={reset}>Reset</button>
+                    </>
+                )  
+            }
+            // var x = 100;
+            // document.getElementById("id1").innerHTML = x
+            // function abc(){
+            //      x++
+            //      console.log(x)
+            //      document.getElementById("id1").innerHTML = x;
+            // }
+            // function xyz(e){
+            //      x--
+            //      document.getElementById('id1').innerHTML = x
+            // }
+            // function pqr(e){
+            //      x=0
+            //      document.getElementById('id1').innerHTML = x
+            // }
+            var x = <>
+                    <Counter count = {Counter} />
+                    <Counter count = {Counter} />
+                    <Counter count = {Counter} />
+                     </>
+            ReactDOM.render(x,document.getElementById('id1')) 
+        </script>
+    </body>
+</html>

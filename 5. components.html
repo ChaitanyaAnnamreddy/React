@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="dd1"></div>
+    <script type="text/babel">
+      //  var z = function(){console.log('Hi')} -> its not a component
+        var Y = function(){return <h1>Hello Students</h1>} 
+        // Y is a component - Component is a function which return JSX element
+        //Component Name starts with Caps
+        //Component can be reused
+        //Components are functions - all functions are not components
+        //<Y/> - ni custom JSX element laga use chestunam
+        var x = <div>
+                    <Y/>
+                    <h1>Chaitanya</h1>
+                    <h2>Chaitanya</h2>
+                    <h3>Chaitanya</h3>
+                    <h4>Chaitanya</h4>
+                    <Y/>
+                    <Y/>
+                    <Y/> 
+                </div>
+        ReactDOM.render(x,document.getElementById('dd1'))
+    </script>
+  </body>
+</html>
